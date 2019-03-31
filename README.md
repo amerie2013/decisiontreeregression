@@ -580,17 +580,29 @@ feature_imp
 In order to understand whether alcohol affects students success, I compare grades with average.
 
 average-above average		0.54
+
 G2				0.29
+
 absences			0.06
+
 goout				0.01
+
 age				0.01
+
 health				0.01
+
 famrel				0.01
+
 school-GP			0.01
+
 Dalc				0.01
+
 st-time-5 to 10 hours		0.01
+
 sex-F				0.01
+
 guardian-father			0.00
+
 romantic-no			0.00
 
 ```
