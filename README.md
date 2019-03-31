@@ -257,3 +257,6 @@ ax.set_title('Distribution of absences for classes by people in love')
 plt.savefig('average.png')
 ```
 
+![](Figure/22.png?raw=true)
+
+
