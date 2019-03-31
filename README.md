@@ -5,38 +5,71 @@ This is the first time of this project. In this part we will use Decision Tree R
 most. The owner of the dataset suggests paying attention to the amount of alcohol consumed by students. This is a really interesting topic. Let’s start. In this part we have 33 columns with 1044 variables each:
 
 schoolStudent’s school (binary: ’GP’ - Gabriel Pereira or ’MS’ - Mousinho da Silveira)
+
 sexStudent’s sex (binary: ’F’ - female or ’M’ - male)
+
 ageStudent’s age (numeric: from 15 to 22)
+
 addressStudent’s home address type (binary: ’U’ - urban or ’R’ - rural)
+
 famsizeFamily size (binary: ’LE3’ - less or equal to 3 or ’GT3’ - greater than 3)
+
 PstatusParent’s cohabitation status (binary: ’T’ - living together or ’A’ - living apart)
+
 MeduMother’s education (numeric: 0 - none, 1 - primary education (4th grade), 2 - 5th to 9th grade, 3 -
+
 secondary education, or 4 - higher education)
+
 FeduFather’s education (numeric: 0 - none, 1 – primary education (4th grade), 2 - 5th to 9th grade, 3 – secondary education, or 4 - higher education)
+
 MjobMother’s job (nominal: ’teacher’, ’health’ care related, civil ’services’ (e.g. administrative or police), ’at home’ or ’other’)
+
 FjobFather’s job (nominal: ’teacher’, ’health’ care related, civil ’services’ (e.g. administrative or police), ’at home’ or ’other’)
+
 reasonReason to choose this school (nominal: close to ’home’, school ’reputation’, ’course’ preference or ’other’)
+
 guardianStudent’s guardian (nominal: ’mother’, ’father’ or ’other’)
+
 traveltimeHome to school travel time (numeric: 1 – 15 min., 2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 -1 hour)
+
 studytimeWeekly study time (numeric: 1 - 2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - ¿10 hours)
+
 failuresNumber of past class failures (numeric: n if 1=n3, else 4)
+
 schoolsupExtra educational support (binary: yes or no)
+
 famsupFamily educational support (binary: yes or no)
+
 paidExtra paid classes within the course subject (Math or Portuguese) (binary: yes or no)
+
 activitiesExtra-curricular activities (binary: yes or no)
+
 nurseryAttended nursery school (binary: yes or no)
+
 higherWants to take higher education (binary: yes or no)
+
 internetInternet access at home (binary: yes or no)
+
 romanticWith a romantic relationship (binary: yes or no)
+
 famrelQuality of family relationships (numeric: from 1 - very bad to 5 - excellent)
+
 freetimeFree time after school (numeric: from 1 – very low to 5 - very high)
+
 gooutGoing out with friends (numeric: from 1 – very low to 5 - very high)
+
 DalcWorkday alcohol consumption (numeric: from 1 - very low to 5 - very high)
+
 WalcWeekend alcohol consumption (numeric: from 1 - very low to 5 - very high)
+
 healthCurrent health status (numeric: from 1 - very bad to 5 - very good)
+
 absencesNumber of school absences (numeric: from 0 to 93)
+
 G1First period grade (numeric: from 0 to 20)
+
 G2Second period grade (numeric: from 0 to 20)
+
 G3Final grade (numeric: from 0 to 20, output target)
 
 **Libraries we need**
