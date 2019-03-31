@@ -1,4 +1,6 @@
-# decisiontreeregression
+# decisiontreeregression   
+**Student Alcohol Consumption**
+
 Visualization Data and Decision Tree Analysis
 Decision tree builds regression or classification models in the form of a tree structure. It breaks down a data set into smaller and smaller subsets while at the same time an associated decision tree is incrementally developed. The final result is a tree with decision nodes and leaf nodes.
 This is the first time of this project. In this part we will use Decision Tree Regression to study the effect of some factors on the grade of the students. We have an excellent set which contains information about the life of students of some courses and their academic success. As for me, I am very interested to examine in detail the information about the students and find out what influences their grades the
@@ -617,3 +619,7 @@ plt.show()
 ```
 
 ![](Figure/last.png?raw=true)
+
+**References**
+
+https://www.kaggle.com/uciml/student-alcohol-consumption/kernels
