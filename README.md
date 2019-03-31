@@ -161,6 +161,5 @@ plt.xticks(rotation=90)
 plt.yticks(rotation = 0)
 plt.savefig('corr.png')
 ```
-    
-https://github.com/amerie2013/decisiontreeregression/blob/master/Figure/20.png?raw=true
+ ![](Figure/20.png?raw=true)
 
