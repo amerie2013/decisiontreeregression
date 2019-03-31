@@ -62,6 +62,7 @@ sns.set(style="whitegrid", color_codes=True)
 warnings.filterwarnings('ignore')
 py.init_notebook_mode(connected=True)
 ```
+
 **Reading the two data files**
 ```
 # Read data from file 'filename.csv' 
@@ -70,7 +71,7 @@ py.init_notebook_mode(connected=True)
 data1 = pd.read_csv("student-por.csv") 
 data2 = pd.read_csv("student-mat.csv")
 ```
-** Reading the data columns**
+**Reading the data columns**
 ```
 data1.columns
 ```
@@ -153,6 +154,7 @@ Index(['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu',
        'higher', 'internet', 'romantic', 'famrel', 'freetime', 'goout', 'Dalc',
        'Walc', 'health', 'absences', 'G1', 'G2', 'G3'],
       dtype='object')
+    
 **Modern Corrolation Matrix**
 ```
 plt.figure(figsize=(11,11), dpi= 90, facecolor='w', edgecolor='k')
@@ -163,3 +165,18 @@ plt.savefig('corr.png')
 ```
  ![](Figure/20.png?raw=true)
 
+The number of girls is a little more. We will come back to the gender of students when we consider the final grades of students and so on.
+Now let’s pay attention to the age of students. After all, we assume, for example, that the younger the student the less likely that he uses alcohol.
+```
+ages = data["age"].value_counts()
+labels = (np.array(ages.index))
+sizes = (np.array((ages / ages.sum())*100))
+
+trace = go.Pie(labels=labels, values=sizes)
+layout = go.Layout(title="Аge of students")
+dat = [trace]
+fig = go.Figure(data=dat, layout=layout)
+py.iplot(fig, filename="age")
+plt.savefig('age.png')
+```
+![](Figure/age.png)
