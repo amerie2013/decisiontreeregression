@@ -38,6 +38,7 @@ absencesNumber of school absences (numeric: from 0 to 93)
 G1First period grade (numeric: from 0 to 20)
 G2Second period grade (numeric: from 0 to 20)
 G3Final grade (numeric: from 0 to 20, output target)
+
 **Libraries we need**
 ```
 import os
@@ -71,6 +72,7 @@ py.init_notebook_mode(connected=True)
 data1 = pd.read_csv("student-por.csv") 
 data2 = pd.read_csv("student-mat.csv")
 ```
+
 **Reading the data columns**
 ```
 data1.columns
@@ -90,6 +92,7 @@ Index(['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu',
        'higher', 'internet', 'romantic', 'famrel', 'freetime', 'goout', 'Dalc',
        'Walc', 'health', 'absences', 'G1', 'G2', 'G3'],
       dtype='object')
+      
 **Adding "student-mat.csv" and "student-por.csv" together under the same columns names**
 ```
 frames = [data1, data2]
@@ -180,3 +183,77 @@ py.iplot(fig, filename="age")
 plt.savefig('age.png')
 ```
 ![](Figure/age.png)
+
+Basically, we are dealing with students 15-18 years. The best, but very often is a difficult age. Teenagers want to relax more with friends and learn less knowledge. Now, let’s see how many hours a week students spend on their studies.
+
+```
+data['st_time'] = np.nan
+df = [data]
+
+for col in df:
+    col.loc[col['studytime'] == 1 , 'st_time'] = '< 2 hours'
+    col.loc[col['studytime'] == 2 , 'st_time'] = '2 to 5 hours'
+    col.loc[col['studytime'] == 3, 'st_time'] = '5 to 10 hours'
+    col.loc[col['studytime'] == 4, 'st_time'] = '> 10 hours'  
+ 
+labels = data["st_time"].unique().tolist()
+amount = data["st_time"].value_counts().tolist()
+
+colors = ["pink", "cyan", "green", "yellow"]
+
+trace = go.Pie(labels=labels, values=amount,
+               hoverinfo='label+percent', textinfo='value', 
+               textfont=dict(size=20),
+               marker=dict(colors=colors, 
+                           line=dict(color='#000000', width=2)))
+dt = [trace]
+layout = go.Layout(title="Study Time")
+
+fig = go.Figure(data=dt, layout=layout)
+iplot(fig, filename='pie')
+plt.savefig('study time.png')
+```
+![](Figure/studytime.png?raw=true)
+
+The figure above, Show to us Most students spend 2 to 5 and 5 to 10 hours a week studying. It would be better if we had the exact number of hours for each student. Personally, I think a student who spends 5 hours a week studying is a diligent student. 2 hours is not always enough. But we can pay attention to the impact of the number of hours spent on a study on the final grade of the student.
+
+```
+sns.catplot(x="address", kind="count",hue = "traveltime",palette="Set2", data=data, height = 6)
+plt.title("Students address: U - urban, R - rural")
+plt.savefig('Students address.png')
+```
+
+![](Figure/Studentsaddress.png?raw=true)
+
+As you see, Most of the students live in the city. Few students take long to get to school. let’s see if this affects the number of absences.
+
+```
+f= plt.figure(figsize=(9,7))
+
+ax=f.add_subplot(211)
+sns.distplot(data[(data.address == 'U')]["absences"],color='Yellow',ax=ax)
+ax.set_title('Distribution of absences for students who live is city')
+
+ax=f.add_subplot(212)
+sns.distplot(data[(data.address == 'R')]['absences'],color='Green',ax=ax)
+ax.set_title('Distribution of absences for students who live in village')
+plt.savefig('Distributionofabsencesforstudents.png')
+```
+
+![](Figure/Distributionofabsencesforstudents.png?raw=true)
+
+Although, among the students living in the village there are people with a lot of absences. But while we can not say for sure that this is due to the fact that the student does not live in the city. But of course, this may be due to traffic jams on the road or not a very good transport schedule.
+
+```
+f= plt.figure(figsize=(9,7))
+
+ax=f.add_subplot(211)
+sns.distplot(data[(data.romantic == 'no')]["absences"],color='coral',ax=ax)
+ax.set_title('Distribution of absences for classes by single people')
+
+ax=f.add_subplot(212)
+sns.distplot(data[(data.romantic == 'yes')]['absences'],color='purple',ax=ax)
+ax.set_title('Distribution of absences for classes by people in love')
+plt.savefig('average.png')
+```
+
